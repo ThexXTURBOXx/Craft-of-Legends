@@ -15,7 +15,7 @@ public abstract class InvItem extends ItemBase {
 	 * Returns null, if there are none.*/
 	public abstract ItemProperties getEffects();
 	
-	/**@return The gold the item costs.*/
+	/**@return The amount of gold the item costs.*/
 	public abstract int getCost();
 	
 	/**@return The items which is this item built from.
@@ -43,7 +43,9 @@ public abstract class InvItem extends ItemBase {
 		switch(p) {
 		case ABILITY_POWER: s =  "+ " + v + " $a"; break;
 		case ARMOR: s =  "+ " + v + " $a"; break;
+		case ARMOR_PENETRATION: s = "+ " + v + " $a"; break;
 		case ATTACK_DAMAGE: s =  "+ " + v + " $a"; break;
+		case ATTACK_SPEED: s = "+ " + v + "% $a"; break;
 		case COOLDOWN: s =  "+ " + v + "% $a"; break;
 		case CRIT_CHANCE: s =  "+ " + v + "% $a"; break;
 		case GOLD_PER_SEC: s =  "+ " + v + " $a"; break;
@@ -51,6 +53,7 @@ public abstract class InvItem extends ItemBase {
 		case LIFE_REGEN: s =  "+ " + v + " $a"; break;
 		case LIFE_STEAL: s =  "+ " + v + " $a"; break;
 		case MAGIC_RESIST: s =  "+ " + v + " $a"; break;
+		case MAGIC_PENETRATION: s =  "+ " + v + " $a"; break;
 		case MANA: s =  "+ " + v + " $a"; break;
 		case MANA_REGEN: s =  "+ " + v + " $a"; break;
 		case MOVEMENT: s =  "+ " + v + " $a"; break;

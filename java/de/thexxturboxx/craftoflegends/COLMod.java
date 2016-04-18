@@ -12,7 +12,7 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
-@Mod(modid = COLMod.ID, version = COLMod.VERSION, name = COLMod.NAME, updateJSON = "http://femtopedia.de/col_version.json")
+@Mod(modid = COLMod.ID, version = COLMod.VERSION, name = COLMod.NAME, updateJSON = "https://raw.githubusercontent.com/ThexXTURBOXx/Craft-of-Legends/master/version.json")
 public class COLMod {
 	public static final String NAME = "Craft of Legends";
     public static final String ID = "craftoflegends";
