@@ -1,0 +1,16 @@
+[
+{
+  "modid": "craftoflegends",
+  "name": "Craft of Legends",
+  "description": "~ Official permission by Riot Games ~ A mod, which adds much things of LoL in Minecraft",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "later on...",
+  "updateUrl": "later on...",
+  "authorList": ["ThexXTURBOXx"],
+  "credits": "Lady Macbeth for clarifying the license of LoL ^^",
+  "logoFile": "later on...",
+  "screenshots": [],
+  "dependencies": []
+}
+]
