@@ -11,4 +11,8 @@ You want to have this mod translated to your language? You know 2 languages? The
 <br>
 ## May I add this mod in my modpack? <br>
 Knock yourself out! Of course! <br>
-BUT! Give credits to its developer and to Riot Games.
+BUT! Give credits to its developer and to Riot Games. <br>
+<br>
+## I don't trust you... Where are the permissions? HUH? <br>
+Here is a screenshot of the conversation between me and Lady Macbeth (LoL-Support, German like me): <br>
+![Conversation](http://www.femtopedia.de/conversation.png) <br>
