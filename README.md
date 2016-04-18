@@ -16,3 +16,4 @@ BUT! Give credits to its developer and to Riot Games. <br>
 ## I don't trust you... Where are the permissions? HUH? <br>
 Here is a screenshot of the conversation between me and Lady Macbeth (LoL-Support, German like me): <br>
 ![Conversation](http://www.femtopedia.de/conversation.png) <br>
+(Google Translator is your friend ^^) <br>
