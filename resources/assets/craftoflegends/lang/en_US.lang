@@ -1,3 +1,37 @@
 itemGroup.craftoflegends=Craft of Legends
 
+property.abilitypower=Ability Power
+
 item.abyssal_scepter.name=Abyssal Scepter
+item.aegis_legion.name=Aegis of the Legion
+item.aether_wisp.name=Aether Wisp
+item.amplifying_tome.name=Amplifying Tome
+item.ancient_coin.name=Ancient Coin
+item.archangel_staff.name=Archangel's Staff
+item.ardent_censer.name=Ardent Censer
+item.athene_grail.name=Athene's Unholy Grail
+item.bamis_cinder.name=Bami's Cinder
+item.banner_command.name=Banner of Command
+item.banshee_veil.name=Banshee's Veil
+item.berserker_greaves.name=Berserker's Greaves
+item.bf_sword.name=B. F. Sword
+item.bilgewater_cutlass.name=Bilgewater Cutlass
+item.blade_king.name=Blade of the Ruined King
+item.blasting_wand.name=Blasting Wand
+item.boots_mobility.name=Boots of Mobility
+item.boots_speed.name=Boots of Speed
+item.boots_swiftness.name=Boots of Swiftness
+item.brawler_gloves.name=Brawler's Gloves
+item.catalyst.name=Catalyst the Protector
+item.caulfield_wh.name=Caulfield's Warhammer
+item.chainvest.name=Chain Vest
+item.chalice_harmony.name=Chalice of Harmony
+item.cloak_agility.name=Cloak of Agility
+item.cloth_armor.name=Cloth Armor
+item.corrupting_potion.name=Corrupting Potion
+item.crystalline_bracer.name=Crystalline Bracer
+item.cull.name=Cull
+item.dagger.name=Dagger
+item.dead_mans_plate.name=Dead Man's Plate
+item.deaths_dance.name=Death's Dance
+item.dervish_blade.name=Dervish Blade
