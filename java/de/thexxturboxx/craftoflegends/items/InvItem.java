@@ -32,8 +32,11 @@ public abstract class InvItem extends ItemBase {
 	
 	@Override
 	public void addInformation(ItemStack stack, EntityPlayer playerIn, List<String> tooltip, boolean advanced) {
-		for(PROPERTY p : getEffects().getMap().keySet()) {
-			tooltip.add(getEffectString(p, getEffects().getMap().get(p)));
+		super.addInformation(stack, playerIn, tooltip, advanced);
+		if(getEffects() != null) {
+			for(PROPERTY p : getEffects().getMap().keySet()) {
+				tooltip.add(getEffectString(p, getEffects().getMap().get(p)));
+			}			
 		}
 	}
 	
@@ -49,13 +52,14 @@ public abstract class InvItem extends ItemBase {
 		case COOLDOWN: s =  "+ " + v + "% $a"; break;
 		case CRIT_CHANCE: s =  "+ " + v + "% $a"; break;
 		case GOLD_PER_SEC: s =  "+ " + v + " $a"; break;
-		case LIFE: s =  "+ " + v + " $a"; break;
-		case LIFE_REGEN: s =  "+ " + v + " $a"; break;
+		case HEALTH: s =  "+ " + v + " $a"; break;
+		case HEALTH_REGEN: s =  "+ " + v + "% $a"; break;
+		case LIFE_ON_HIT: s = "+ " + v + " $a"; break;
 		case LIFE_STEAL: s =  "+ " + v + " $a"; break;
 		case MAGIC_RESIST: s =  "+ " + v + " $a"; break;
 		case MAGIC_PENETRATION: s =  "+ " + v + " $a"; break;
 		case MANA: s =  "+ " + v + " $a"; break;
-		case MANA_REGEN: s =  "+ " + v + " $a"; break;
+		case MANA_REGEN: s =  "+ " + v + "% $a"; break;
 		case MOVEMENT: s =  "+ " + v + " $a"; break;
 		default: throw new IllegalArgumentException("The property called " + p.name() + " couldn#t be found!");
 		}
