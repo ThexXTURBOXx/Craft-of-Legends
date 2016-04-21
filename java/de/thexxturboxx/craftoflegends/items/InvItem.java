@@ -5,10 +5,10 @@ import java.util.List;
 
 import de.thexxturboxx.craftoflegends.api.ItemProperties;
 import de.thexxturboxx.craftoflegends.api.PROPERTY;
+import de.thexxturboxx.craftoflegends.util.Helpers;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.text.translation.I18n;
 
 public abstract class InvItem extends ItemBase {
 	
@@ -62,8 +62,8 @@ public abstract class InvItem extends ItemBase {
 		case MANA: s =  "+ " + v + " $a"; break;
 		case MANA_REGEN: s =  "+ " + v + "% $a"; break;
 		case MOVEMENT: s =  "+ " + v + " $a"; break;
-		default: throw new IllegalArgumentException("The property called " + p.name() + " couldn#t be found!");
+		default: throw new IllegalArgumentException("The property called " + p.name() + " couldn't be found!");
 		}
-		return s.replace("$a", I18n.translateToLocal("primal_prop." + p.name().toLowerCase()));
+		return s.replace("$a", Helpers.translate("primal_prop." + p.name().toLowerCase()));
 	}
 }
