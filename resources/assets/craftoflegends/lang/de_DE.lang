@@ -1,3 +1,21 @@
 itemGroup.craftoflegends=Craft of Legends
 
+primal_prop.ability_power=Fähigkeitsstärke
+primal_prop.armor=Rüstung
+primal_prop.armor_penetration=Rüstungsdurchdringung
+primal_prop.attack_damage=Angriffsschaden
+primal_prop.attack_speed=Angriffstempo
+primal_prop.cooldown=Abklingzeitverringerung
+primal_prop.crit_chance=Chance auf kritische Treffer
+primal_prop.gold_per_sec=Gold pro 10 Sek
+primal_prop.health=Leben
+primal_prop.health_regen=Grundwert für Lebensregeneration
+primal_prop.life_on_hit=Leben bei einem Treffer
+primal_prop.life_steal=Lebensraub
+primal_prop.magic_resist=Magieresistenz
+primal_prop.magic_penetration=Magiedurchdringung
+primal_prop.mana=Mana
+primal_prop.mana_regen=Grundwert für Manaregeneration
+primal_prop.movement=Lauftempo
+
 item.abyssal_scepter.name=Höllenzepter
