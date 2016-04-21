@@ -13,30 +13,26 @@ public class Helpers {
 	public static String translate(String toTranslate) {
 		String s = I18n.translateToLocal(toTranslate);
 		if(s.equalsIgnoreCase(toTranslate)) {
-			InputStream in = COLMod.class.getResourceAsStream("/assets/craftoflegends/lang/en_GB.lang");
-			try {
-				for(String s1 : IOUtils.readLines(in)) {
-					if(s1.contains(toTranslate)) {
-						s = s1.replace(toTranslate + "=", "");
-					}
-				}
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
+			s = getNewTranslation(toTranslate, "en_GB");
 		}
 		if(s.equalsIgnoreCase(toTranslate)) {
-			InputStream in = COLMod.class.getResourceAsStream("/assets/craftoflegends/lang/en_US.lang");
-			try {
-				for(String s1 : IOUtils.readLines(in)) {
-					if(s1.contains(toTranslate)) {
-						s = s1.replace(toTranslate + "=", "");
-					}
-				}
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
+			s = getNewTranslation(toTranslate, "en_US");			
 		}
 		return s;
+	}
+	
+	public static String getNewTranslation(String toTranslate, String language) {
+		InputStream in = COLMod.class.getResourceAsStream("/assets/craftoflegends/lang/" + language + ".lang");
+		try {
+			for(String s1 : IOUtils.readLines(in)) {
+				if(s1.contains(toTranslate)) {
+					return s1.replace(toTranslate + "=", "");
+				}
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return toTranslate;
 	}
 	
 }

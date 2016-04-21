@@ -1,6 +1,22 @@
 itemGroup.craftoflegends=Craft of Legends
 
-property.abilitypower=Ability Power
+primal_prop.ability_power=Ability Power
+primal_prop.armor=Armor
+primal_prop.armor_penetration=Armor Penetration
+primal_prop.attack_damage=Attack Damage
+primal_prop.attack_speed=Attack Speed
+primal_prop.cooldown=Cooldown Reduction
+primal_prop.crit_chance=Crit Chance
+primal_prop.gold_per_sec=Gold per 10 Seconds
+primal_prop.health=Health
+primal_prop.health_regen=Base Health Regeneration
+primal_prop.life_on_hit=Life on Hit
+primal_prop.life_steal=Life Steal
+primal_prop.magic_resist=Magic Resist
+primal_prop.magic_penetration=Magic Penetration
+primal_prop.mana=Mana
+primal_prop.mana_regen=Base Mana Regeneration
+primal_prop.movement=Movement Speed
 
 item.abyssal_scepter.name=Abyssal Scepter
 item.aegis_legion.name=Aegis of the Legion
