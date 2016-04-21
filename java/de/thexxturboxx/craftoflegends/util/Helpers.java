@@ -24,6 +24,18 @@ public class Helpers {
 				e.printStackTrace();
 			}
 		}
+		if(s.equalsIgnoreCase(toTranslate)) {
+			InputStream in = COLMod.class.getResourceAsStream("/assets/craftoflegends/lang/en_US.lang");
+			try {
+				for(String s1 : IOUtils.readLines(in)) {
+					if(s1.contains(toTranslate)) {
+						s = s1.replace(toTranslate + "=", "");
+					}
+				}
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
 		return s;
 	}
 	
