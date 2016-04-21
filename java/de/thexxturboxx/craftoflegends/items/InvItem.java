@@ -8,6 +8,7 @@ import de.thexxturboxx.craftoflegends.api.PROPERTY;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.text.translation.I18n;
 
 public abstract class InvItem extends ItemBase {
 	
@@ -63,6 +64,6 @@ public abstract class InvItem extends ItemBase {
 		case MOVEMENT: s =  "+ " + v + " $a"; break;
 		default: throw new IllegalArgumentException("The property called " + p.name() + " couldn#t be found!");
 		}
-		return s.replace("$a", p.realName());
+		return s.replace("$a", I18n.translateToLocal("primal_prop." + p.name().toLowerCase()));
 	}
 }

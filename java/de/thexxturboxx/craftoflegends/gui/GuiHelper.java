@@ -24,7 +24,6 @@ public class GuiHelper extends GuiScreen {
 		int y = e.getResolution().getScaledHeight();
 		
 		drawTexturedModalRect(x / 2, y / 2, 0, 0, 256, 256);
-		
 	}
 	
 }
