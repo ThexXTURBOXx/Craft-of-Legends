@@ -1,29 +1,26 @@
 package de.thexxturboxx.craftoflegends.gui;
 
+import org.lwjgl.opengl.GL11;
+
 import de.thexxturboxx.craftoflegends.COLMod;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.client.event.RenderGameOverlayEvent;
-import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class GuiHelper extends GuiScreen {
 	
-	Minecraft mc;
+	int guiWidth = 148;
+	int guiHeight = 80;
 	
-	@SideOnly(Side.CLIENT)
-	@SubscribeEvent
-	protected void drawGuiContainerBackgroundLayer(RenderGameOverlayEvent e) {
-		mc = Minecraft.getMinecraft();
-		
+	@Override
+	public void drawScreen(int x, int y, float ticks) {
+		int guiX = (width - guiWidth) / 2;
+		int guiY = (height - guiHeight) / 2;
+		GL11.glColor4f(1, 1, 1, 1);
+		drawDefaultBackground();
 		mc.renderEngine.bindTexture(new ResourceLocation(COLMod.ID, "textures/gui/container.png"));
-		
-		int x = e.getResolution().getScaledWidth();
-		int y = e.getResolution().getScaledHeight();
-		
-		drawTexturedModalRect(x / 2, y / 2, 0, 0, 256, 256);
+		drawTexturedModalRect(guiX, guiY, 0, 0, guiWidth, guiHeight);
+		fontRendererObj.drawString("Test", guiX, guiY, 0x404040);
+		super.drawScreen(x, y, ticks);
 	}
 	
 }

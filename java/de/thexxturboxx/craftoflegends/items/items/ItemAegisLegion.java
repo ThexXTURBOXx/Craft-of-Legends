@@ -5,8 +5,15 @@ import java.util.List;
 
 import de.thexxturboxx.craftoflegends.api.ItemProperties;
 import de.thexxturboxx.craftoflegends.api.PROPERTY;
+import de.thexxturboxx.craftoflegends.gui.GuiHelper;
 import de.thexxturboxx.craftoflegends.items.InvItem;
+import net.minecraft.client.Minecraft;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.ActionResult;
+import net.minecraft.util.EnumHand;
+import net.minecraft.world.World;
 
 public class ItemAegisLegion extends InvItem {
 	
@@ -39,5 +46,11 @@ public class ItemAegisLegion extends InvItem {
 				setProperty(PROPERTY.HEALTH, 200).
 				setProperty(PROPERTY.HEALTH_REGEN, 100).
 				setProperty(PROPERTY.MAGIC_RESIST, 20);
-	}	
+	}
+	
+	@Override
+	public ActionResult<ItemStack> onItemRightClick(ItemStack itemStackIn, World worldIn, EntityPlayer playerIn, EnumHand hand) {
+		if(!worldIn.isRemote) Minecraft.getMinecraft().displayGuiScreen(new GuiHelper());
+		return super.onItemRightClick(itemStackIn, worldIn, playerIn, hand);
+	}
 }

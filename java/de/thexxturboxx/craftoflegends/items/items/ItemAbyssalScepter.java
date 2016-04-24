@@ -3,10 +3,19 @@ package de.thexxturboxx.craftoflegends.items.items;
 import java.util.ArrayList;
 import java.util.List;
 
+import de.thexxturboxx.craftoflegends.api.DataManager;
 import de.thexxturboxx.craftoflegends.api.ItemProperties;
+import de.thexxturboxx.craftoflegends.api.PLAYER_PROPERTY;
 import de.thexxturboxx.craftoflegends.api.PROPERTY;
 import de.thexxturboxx.craftoflegends.items.InvItem;
+import net.minecraft.client.gui.GuiScreen;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.ActionResult;
+import net.minecraft.util.EnumHand;
+import net.minecraft.util.text.TextComponentString;
+import net.minecraft.world.World;
 
 public class ItemAbyssalScepter extends InvItem {
 	
@@ -38,5 +47,15 @@ public class ItemAbyssalScepter extends InvItem {
 		return new ItemProperties().
 				setProperty(PROPERTY.ABILITY_POWER, 70).
 				setProperty(PROPERTY.MAGIC_RESIST, 50);
+	}
+	
+	@Override
+	public ActionResult<ItemStack> onItemRightClick(ItemStack itemStackIn, World worldIn, EntityPlayer playerIn, EnumHand hand) {
+		if(GuiScreen.isShiftKeyDown()) {
+			DataManager.setGold(playerIn.getUniqueID().toString(), DataManager.getProperty(playerIn.getUniqueID().toString(), PLAYER_PROPERTY.GOLD) + 10);
+		} else {
+			playerIn.addChatComponentMessage(new TextComponentString("Gold: " + DataManager.getProperty(playerIn.getUniqueID().toString(), PLAYER_PROPERTY.GOLD)));
+		}
+		return super.onItemRightClick(itemStackIn, worldIn, playerIn, hand);
 	}
 }
