@@ -18,4 +18,8 @@ primal_prop.mana=Mana
 primal_prop.mana_regen=Grundwert für Manaregeneration
 primal_prop.movement=Lauftempo
 
+keys.col.category=Craft of Legends
+
+key.guigeneral.desc=Die allgemeine GUI öffnen
+
 item.abyssal_scepter.name=Höllenzepter

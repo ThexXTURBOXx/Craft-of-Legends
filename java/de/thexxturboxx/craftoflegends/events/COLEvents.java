@@ -13,8 +13,15 @@ import org.apache.commons.io.IOUtils;
 
 import de.thexxturboxx.craftoflegends.api.DataManager;
 import de.thexxturboxx.craftoflegends.api.PLAYER_PROPERTY;
+import de.thexxturboxx.craftoflegends.gui.GuiHelper;
+import de.thexxturboxx.craftoflegends.proxy.ClientProxy;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.settings.KeyBinding;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.gameevent.InputEvent.KeyInputEvent;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class COLEvents {
 	
@@ -81,4 +88,12 @@ public class COLEvents {
 		throw new IllegalArgumentException("[CraftOfLegends] The Player config file couldn't be initialized.");
 	}
 	
+	@SideOnly(Side.CLIENT)
+	@SubscribeEvent(receiveCanceled=true)
+	public void onKeyboardPressed(KeyInputEvent event) {
+		KeyBinding[] keyBindings = ClientProxy.keyBindings;
+		if (keyBindings[0].isPressed()) {
+			Minecraft.getMinecraft().displayGuiScreen(new GuiHelper());
+		}
+	}
 }

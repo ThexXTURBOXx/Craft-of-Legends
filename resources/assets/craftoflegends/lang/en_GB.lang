@@ -18,6 +18,10 @@ primal_prop.mana=Mana
 primal_prop.mana_regen=Base Mana Regeneration
 primal_prop.movement=Movement Speed
 
+keys.col.category=Craft of Legends
+
+key.guigeneral.desc=Open the General GUI
+
 item.abyssal_scepter.name=Abyssal Scepter
 item.aegis_legion.name=Aegis of the Legion
 item.aether_wisp.name=Aether Wisp
