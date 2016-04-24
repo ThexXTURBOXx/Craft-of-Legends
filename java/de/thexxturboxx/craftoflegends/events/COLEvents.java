@@ -14,6 +14,7 @@ import org.apache.commons.io.IOUtils;
 import de.thexxturboxx.craftoflegends.api.DataManager;
 import de.thexxturboxx.craftoflegends.api.PLAYER_PROPERTY;
 import de.thexxturboxx.craftoflegends.gui.GuiDataGeneral;
+import de.thexxturboxx.craftoflegends.gui.GuiShop;
 import de.thexxturboxx.craftoflegends.proxy.ClientProxy;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.settings.KeyBinding;
@@ -92,8 +93,11 @@ public class COLEvents {
 	@SubscribeEvent(receiveCanceled=true)
 	public void onKeyboardPressed(KeyInputEvent event) {
 		KeyBinding[] keyBindings = ClientProxy.keyBindings;
-		if (keyBindings[0].isPressed()) {
+		if(keyBindings[0].isPressed()) {
 			Minecraft.getMinecraft().displayGuiScreen(new GuiDataGeneral());
+		}
+		if(keyBindings[1].isPressed()) {
+			Minecraft.getMinecraft().displayGuiScreen(new GuiShop());			
 		}
 	}
 }

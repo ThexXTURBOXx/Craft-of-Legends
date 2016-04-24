@@ -21,5 +21,6 @@ primal_prop.movement=Lauftempo
 keys.col.category=Craft of Legends
 
 key.guigeneral.desc=Die allgemeine GUI öffnen
+key.guishop.desc=Den Shop öffnen
 
 item.abyssal_scepter.name=Höllenzepter

@@ -12,22 +12,24 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
 public class ClientProxy extends CommonProxy {
 	
-	public static KeyBinding[] keyBindings;
-	public static final String categoryKeys = "keys.col.category";
-	
 	@Override
 	public void preInit(FMLPreInitializationEvent e) {
 		super.preInit(e);
 		MinecraftForge.EVENT_BUS.register(new GuiDataGeneral());
 	}
 	
+	public static KeyBinding[] keyBindings;
+	public static final String categoryKeys = "keys.col.category";
+	
 	@Override
 	public void init(FMLInitializationEvent e) {
 		super.init(e);
-		keyBindings = new KeyBinding[1];
-		
-		//Keybinding for opening the general GUI
-		keyBindings[0] = new KeyBinding("key.guigeneral.desc", Keyboard.KEY_K, categoryKeys);
+		keyBindings = new KeyBinding[] {
+		//Keybinding for opening the general GUI, id: 0
+		new KeyBinding("key.guigeneral.desc", Keyboard.KEY_C, categoryKeys),
+		//Keybinding for opening the shop GUI, id: 1
+		new KeyBinding("key.guishop.desc", Keyboard.KEY_P, categoryKeys)
+		};
 		
 		for(int i = 0; i < keyBindings.length; ++i) {
 		    ClientRegistry.registerKeyBinding(keyBindings[i]);

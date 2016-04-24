@@ -1,7 +1,11 @@
 package de.thexxturboxx.craftoflegends;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import de.thexxturboxx.craftoflegends.api.COLItems;
 import de.thexxturboxx.craftoflegends.blocks.BlockBase;
+import de.thexxturboxx.craftoflegends.items.InvItem;
 import de.thexxturboxx.craftoflegends.items.ItemBase;
 import de.thexxturboxx.craftoflegends.items.items.ItemAbyssalScepter;
 import de.thexxturboxx.craftoflegends.items.items.ItemAegisLegion;
@@ -47,6 +51,8 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 
 public class COLRegistry {
 	
+	public static final List<InvItem> itemList = new ArrayList();
+	
 	public static void registerItems() {
 		COLItems.abyssal_scepter = registerItem(new ItemAbyssalScepter());
 		COLItems.aegis_legion = registerItem(new ItemAegisLegion());
@@ -85,6 +91,7 @@ public class COLRegistry {
 	
 	public static Item registerItem(ItemBase item) {
 		item.registerRecipes();
+		if(item instanceof InvItem) itemList.add((InvItem) item);
 		return GameRegistry.register(item.setCreativeTab(COLMod.tabCOL).setUnlocalizedName(item.getName()), new ResourceLocation(COLMod.ID, item.getName()));
 	}
 	

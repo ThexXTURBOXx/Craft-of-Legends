@@ -59,5 +59,4 @@ public class GuiDataGeneral extends GuiScreen {
 		int guiY = (height - guiHeight) / 2;
 		fontRendererObj.drawString(text, guiX + 2, guiY + 18 + (9 * (line - 1)), 0x557661, false);
 	}
-	
 }

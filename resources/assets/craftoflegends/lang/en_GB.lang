@@ -21,6 +21,7 @@ primal_prop.movement=Movement Speed
 keys.col.category=Craft of Legends
 
 key.guigeneral.desc=Open the General GUI
+key.guishop.desc=Open the Shop
 
 item.abyssal_scepter.name=Abyssal Scepter
 item.aegis_legion.name=Aegis of the Legion

@@ -8,13 +8,11 @@ import de.thexxturboxx.craftoflegends.api.ItemProperties;
 import de.thexxturboxx.craftoflegends.api.PLAYER_PROPERTY;
 import de.thexxturboxx.craftoflegends.api.PROPERTY;
 import de.thexxturboxx.craftoflegends.items.InvItem;
-import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumHand;
-import net.minecraft.util.text.TextComponentString;
 import net.minecraft.world.World;
 
 public class ItemAbyssalScepter extends InvItem {
@@ -51,10 +49,8 @@ public class ItemAbyssalScepter extends InvItem {
 	
 	@Override
 	public ActionResult<ItemStack> onItemRightClick(ItemStack itemStackIn, World worldIn, EntityPlayer playerIn, EnumHand hand) {
-		if(GuiScreen.isShiftKeyDown()) {
-			DataManager.setGold(playerIn.getUniqueID().toString(), DataManager.getProperty(playerIn.getUniqueID().toString(), PLAYER_PROPERTY.GOLD) + 10);
-		} else {
-			playerIn.addChatComponentMessage(new TextComponentString("Gold: " + DataManager.getProperty(playerIn.getUniqueID().toString(), PLAYER_PROPERTY.GOLD)));
+		if(worldIn.isRemote) {
+			DataManager.setGold(playerIn.getUniqueID().toString(), DataManager.getProperty(playerIn.getUniqueID().toString(), PLAYER_PROPERTY.GOLD) + 10);		
 		}
 		return super.onItemRightClick(itemStackIn, worldIn, playerIn, hand);
 	}
