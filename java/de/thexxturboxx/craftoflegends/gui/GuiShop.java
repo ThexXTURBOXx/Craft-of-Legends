@@ -1,5 +1,8 @@
 package de.thexxturboxx.craftoflegends.gui;
 
+import java.io.IOException;
+
+import org.lwjgl.input.Keyboard;
 import org.lwjgl.opengl.GL11;
 
 import de.thexxturboxx.craftoflegends.COLMod;
@@ -23,6 +26,10 @@ public class GuiShop extends GuiScreen {
 	
 	int scaleFactor = 2;
 	
+	int scroll = 0;
+	int itemsPerLine = 7;
+	int linesPerGui = 7;
+	
 	//GuiButton button;
 	
 	@Override
@@ -39,18 +46,20 @@ public class GuiShop extends GuiScreen {
 		drawTexturedModalRect(guiX + (guiWidth / 2) - xx, guiY + 2, 0, guiHeight, goldWidth, goldHeight);
 		fontRendererObj.drawString(s, guiX + (guiWidth / 2) + xx, guiY + 4, 0xffffff, false);
 		GL11.glScaled((1 / (double) scaleFactor), (1 / (double) scaleFactor), (1 / (double) scaleFactor));
-		int itemsPerLine = 7;
 		int c = 0;
-		for(InvItem i : COLRegistry.itemList) {
-			ResourceLocation r = new ResourceLocation(COLMod.ID, "textures/items/" + i.getName() + ".png");
-			drawNextItem(i, r, c++, itemsPerLine);
+		for(InvItem is : COLRegistry.itemList) {
+			InvItem i = COLRegistry.itemList.get(scroll * itemsPerLine + c);
+			if(c < itemsPerLine * 10) {
+				ResourceLocation r = new ResourceLocation(COLMod.ID, "textures/items/" + i.getName() + ".png");
+				drawNextItem(i, r, c++, itemsPerLine);				
+			}
 		}
 		super.drawScreen(x, y, ticks);
 	}
 	
 	protected void drawNextItem(InvItem i, ResourceLocation r, int number, int itemsPerLine) {
-		int guiX = (width - realGuiWidth) / 2;
-		int guiY = (height - realGuiHeight) / 2;
+		int guiX = (width - realGuiWidth) / scaleFactor;
+		int guiY = (height - realGuiHeight) / scaleFactor;
 		GL11.glColor4f(1, 1, 1, 1);
 		mc.renderEngine.bindTexture(r);
 		int lineX = (number % itemsPerLine) + 1;
@@ -65,5 +74,20 @@ public class GuiShop extends GuiScreen {
 		GL11.glScaled(16, 16, 16);
 		GL11.glColor4d(0.5, 0.5, 0.5, 1);
 		fontRendererObj.drawString(cost, stringX, stringY, 0x557661);
+	}
+	
+	@Override
+	protected void keyTyped(char typedChar, int keyCode) throws IOException {
+		if(keyCode == Keyboard.KEY_DOWN) {
+			if(scroll + 1 <= Math.ceil(((double) COLRegistry.itemList.size() / (double) itemsPerLine)) - linesPerGui) {
+				scroll++;
+			}
+		}
+		if(keyCode == Keyboard.KEY_UP) {
+			if(scroll - 1 >= 0) {
+				scroll--;
+			}
+		}
+		super.keyTyped(typedChar, keyCode);
 	}
 }
