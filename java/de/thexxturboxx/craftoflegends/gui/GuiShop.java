@@ -1,17 +1,23 @@
 package de.thexxturboxx.craftoflegends.gui;
 
 import java.io.IOException;
+import java.util.List;
 
 import org.lwjgl.input.Keyboard;
+import org.lwjgl.input.Mouse;
 import org.lwjgl.opengl.GL11;
+
+import com.mojang.realmsclient.gui.ChatFormatting;
 
 import de.thexxturboxx.craftoflegends.COLMod;
 import de.thexxturboxx.craftoflegends.COLRegistry;
 import de.thexxturboxx.craftoflegends.api.DataManager;
 import de.thexxturboxx.craftoflegends.api.PLAYER_PROPERTY;
 import de.thexxturboxx.craftoflegends.items.InvItem;
+import de.thexxturboxx.craftoflegends.util.Helpers;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.util.ResourceLocation;
+import scala.actors.threadpool.Arrays;
 
 public class GuiShop extends GuiScreen {
 	
@@ -29,6 +35,10 @@ public class GuiShop extends GuiScreen {
 	int scroll = 0;
 	int itemsPerLine = 7;
 	int linesPerGui = 7;
+	
+	int currentX = 0;
+	int currentY = 0;
+	ResourceLocation r = null;
 	
 	//GuiButton button;
 	
@@ -53,6 +63,43 @@ public class GuiShop extends GuiScreen {
 				ResourceLocation r = new ResourceLocation(COLMod.ID, "textures/items/" + i.getName() + ".png");
 				drawNextItem(i, r, c++, itemsPerLine);				
 			}
+		}
+		int guiX1 = guiX * 2;
+		int guiY1 = guiY * 2;
+		if(Mouse.isCreated() && Mouse.isButtonDown(0)) {
+			c = 0;
+			for(InvItem is : COLRegistry.itemList) {
+				int lineX = (c % itemsPerLine) + 1;
+				int lineY = (c - lineX + 1) / itemsPerLine;
+				int itemX = guiX1 + ((lineX - 1) * 32) + 8;
+				int itemY = guiY1 + (lineY * 32) + 31;
+				int ix = Mouse.getEventX() * width / mc.displayWidth;
+		        int iy = height - Mouse.getEventY() * height / mc.displayHeight - 4;
+				if(ix >= itemX && iy >= itemY && ix <= itemX + 16 && iy <= itemY + 16) {
+					r = new ResourceLocation(COLMod.ID, "textures/items/" + is.getName() + ".png");
+					currentX = guiX + 1700;
+					currentY = guiY + 300;
+				}
+				c++;
+			}
+		}
+		if(r != null) drawItem(r, currentX, currentY, 0.25);
+		c = 0;
+		for(InvItem is : COLRegistry.itemList) {
+			int lineX = (c % itemsPerLine) + 1;
+			int lineY = (c - lineX + 1) / itemsPerLine;
+			int itemX = guiX1 + ((lineX - 1) * 32) + 8;
+			int itemY = guiY1 + (lineY * 32) + 31;
+			int ix = Mouse.getEventX() * width / mc.displayWidth;
+	        int iy = height - Mouse.getEventY() * height / mc.displayHeight - 4;
+			if(ix >= itemX && iy >= itemY && ix <= itemX + 16 && iy <= itemY + 16) {
+				String[] sa = new String[] {ChatFormatting.AQUA + Helpers.translate("item." + is.getName() + ".name"),
+						ChatFormatting.AQUA + Helpers.translate("gui.general.gold") + ": " + ChatFormatting.GOLD + 
+						Integer.toString(is.getCost())};
+				List<String> strings = Arrays.asList(sa);
+				drawHoveringText(strings, ix, iy);
+			}
+			c++;
 		}
 		super.drawScreen(x, y, ticks);
 	}
@@ -89,5 +136,19 @@ public class GuiShop extends GuiScreen {
 			}
 		}
 		super.keyTyped(typedChar, keyCode);
+	}
+	
+	@Override
+	protected void mouseClicked(int x, int y, int button) throws IOException {
+		super.mouseClicked(x, y, button);
+	}
+	
+	protected void drawItem(ResourceLocation r, int x, int y, double scale) {
+		GL11.glColor4f(1, 1, 1, 1);
+		mc.renderEngine.bindTexture(r);
+		GL11.glScaled(scale, scale, scale);
+		drawTexturedModalRect(x, y, 0, 0, 256, 256);
+		GL11.glScaled(1 / scale, 1 / scale, 1 / scale);
+		GL11.glColor4d(0.5, 0.5, 0.5, 1);
 	}
 }

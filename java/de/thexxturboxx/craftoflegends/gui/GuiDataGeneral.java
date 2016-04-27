@@ -7,6 +7,7 @@ import org.lwjgl.opengl.GL11;
 import de.thexxturboxx.craftoflegends.COLMod;
 import de.thexxturboxx.craftoflegends.api.DataManager;
 import de.thexxturboxx.craftoflegends.api.PLAYER_PROPERTY;
+import de.thexxturboxx.craftoflegends.util.Helpers;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.util.ResourceLocation;
@@ -26,9 +27,9 @@ public class GuiDataGeneral extends GuiScreen {
 		drawDefaultBackground();
 		mc.renderEngine.bindTexture(new ResourceLocation(COLMod.ID, "textures/gui/datageneral.png"));
 		drawTexturedModalRect(guiX, guiY, 0, 0, guiWidth, guiHeight);
-		fontRendererObj.drawString("Stats", guiX + (guiWidth / 2) - (fontRendererObj.getStringWidth("Stats") / 2), guiY + 4, 0x557661, false);
-		drawLine("User: " + mc.thePlayer.getName(), 1);
-		drawLine("Gold: " + DataManager.getProperty(mc.thePlayer.getUniqueID().toString(), PLAYER_PROPERTY.GOLD), 2);
+		fontRendererObj.drawString(Helpers.translate("gui.general.stats"), guiX + (guiWidth / 2) - (fontRendererObj.getStringWidth("Stats") / 2), guiY + 4, 0x557661, false);
+		drawLine(Helpers.translate("gui.general.user") + ": " + mc.thePlayer.getName(), 1);
+		drawLine(Helpers.translate("gui.general.gold") + ": " + DataManager.getProperty(mc.thePlayer.getUniqueID().toString(), PLAYER_PROPERTY.GOLD), 2);
 		super.drawScreen(x, y, ticks);
 	}
 	

@@ -23,4 +23,8 @@ keys.col.category=Craft of Legends
 key.guigeneral.desc=Die allgemeine GUI öffnen
 key.guishop.desc=Den Shop öffnen
 
+gui.general.stats=Statistiken
+gui.general.user=Beschwörer
+gui.general.gold=Gold
+
 item.abyssal_scepter.name=Höllenzepter

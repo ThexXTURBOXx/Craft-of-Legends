@@ -50,7 +50,7 @@ public class ItemAbyssalScepter extends InvItem {
 	@Override
 	public ActionResult<ItemStack> onItemRightClick(ItemStack itemStackIn, World worldIn, EntityPlayer playerIn, EnumHand hand) {
 		if(worldIn.isRemote) {
-			DataManager.setGold(playerIn.getUniqueID().toString(), DataManager.getProperty(playerIn.getUniqueID().toString(), PLAYER_PROPERTY.GOLD) + 10);		
+			DataManager.setGold(playerIn.getUniqueID().toString(), DataManager.getProperty(playerIn.getUniqueID().toString(), PLAYER_PROPERTY.GOLD) + 1000);		
 		}
 		return super.onItemRightClick(itemStackIn, worldIn, playerIn, hand);
 	}

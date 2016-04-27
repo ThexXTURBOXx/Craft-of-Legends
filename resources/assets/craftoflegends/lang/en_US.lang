@@ -23,6 +23,10 @@ keys.col.category=Craft of Legends
 key.guigeneral.desc=Open the General GUI
 key.guishop.desc=Open the Shop
 
+gui.general.stats=Stats
+gui.general.user=Summoner
+gui.general.gold=Gold
+
 item.abyssal_scepter.name=Abyssal Scepter
 item.aegis_legion.name=Aegis of the Legion
 item.aether_wisp.name=Aether Wisp
