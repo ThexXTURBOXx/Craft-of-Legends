@@ -39,6 +39,7 @@ public class GuiShop extends GuiScreen {
 	int currentX = 0;
 	int currentY = 0;
 	ResourceLocation r = null;
+	InvItem itemcurr = null;
 	
 	//GuiButton button;
 	
@@ -77,13 +78,18 @@ public class GuiShop extends GuiScreen {
 		        int iy = height - Mouse.getEventY() * height / mc.displayHeight - 4;
 				if(ix >= itemX && iy >= itemY && ix <= itemX + 16 && iy <= itemY + 16) {
 					r = new ResourceLocation(COLMod.ID, "textures/items/" + is.getName() + ".png");
-					currentX = guiX + 1700;
-					currentY = guiY + 300;
+					itemcurr = is;
 				}
 				c++;
 			}
 		}
-		if(r != null) drawItem(r, currentX, currentY, 0.25);
+		if(r != null) {
+			currentX = (int) (width * 2 + width / 2);
+			currentY = (int) (height + height / 32);
+			drawItem(r, currentX, currentY, 0.25);
+			fontRendererObj.drawString(Helpers.translate("item." + itemcurr.getName() + ".name"), width / 2 + width / 64, height / 2 - height / 16, 0xffffff, false);
+			fontRendererObj.drawString(itemcurr.getCost() + "", width / 2 + width / 64, height / 2 - height / 16 + 10, 0xffffff, false);
+		}
 		c = 0;
 		for(InvItem is : COLRegistry.itemList) {
 			int lineX = (c % itemsPerLine) + 1;

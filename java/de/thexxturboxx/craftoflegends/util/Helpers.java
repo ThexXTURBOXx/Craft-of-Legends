@@ -12,10 +12,10 @@ public class Helpers {
 	
 	public static String translate(String toTranslate) {
 		String s = I18n.translateToLocal(toTranslate);
-		if(s.equalsIgnoreCase(toTranslate)) {
+		if(s.contains(toTranslate)) {
 			s = getNewTranslation(toTranslate, "en_GB");
 		}
-		if(s.equalsIgnoreCase(toTranslate)) {
+		if(s.contains(toTranslate)) {
 			s = getNewTranslation(toTranslate, "en_US");			
 		}
 		return s;

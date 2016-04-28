@@ -27,7 +27,7 @@ public class GuiDataGeneral extends GuiScreen {
 		drawDefaultBackground();
 		mc.renderEngine.bindTexture(new ResourceLocation(COLMod.ID, "textures/gui/datageneral.png"));
 		drawTexturedModalRect(guiX, guiY, 0, 0, guiWidth, guiHeight);
-		fontRendererObj.drawString(Helpers.translate("gui.general.stats"), guiX + (guiWidth / 2) - (fontRendererObj.getStringWidth("Stats") / 2), guiY + 4, 0x557661, false);
+		fontRendererObj.drawString(Helpers.translate("gui.general.stats"), guiX + (guiWidth / 2) - (fontRendererObj.getStringWidth(Helpers.translate("gui.general.stats")) / 2), guiY + 4, 0x557661, false);
 		drawLine(Helpers.translate("gui.general.user") + ": " + mc.thePlayer.getName(), 1);
 		drawLine(Helpers.translate("gui.general.gold") + ": " + DataManager.getProperty(mc.thePlayer.getUniqueID().toString(), PLAYER_PROPERTY.GOLD), 2);
 		super.drawScreen(x, y, ticks);
