@@ -92,19 +92,19 @@ public class COLRegistry {
 	public static Item registerItem(ItemBase item) {
 		item.registerRecipes();
 		if(item instanceof InvItem) itemList.add((InvItem) item);
-		return GameRegistry.register(item.setCreativeTab(COLMod.tabCOL).setUnlocalizedName(item.getName()), new ResourceLocation(COLMod.ID, item.getName()));
+		return GameRegistry.register(item.setCreativeTab(COLMod.tabCOL).setUnlocalizedName(item.getName()), new ResourceLocation(COLMod.MODID, item.getName()));
 	}
 	
 	public static Block registerBlock(BlockBase block) {
 		block.registerRecipes();
-		return GameRegistry.register(block.setCreativeTab(COLMod.tabCOL).setUnlocalizedName(block.getName()), new ResourceLocation(COLMod.ID, block.getName()));
+		return GameRegistry.register(block.setCreativeTab(COLMod.tabCOL).setUnlocalizedName(block.getName()), new ResourceLocation(COLMod.MODID, block.getName()));
 	}
 	
 	//Entity-ID-Counter
 	private static int c1 = 0;
 	
 	public static void registerEntity(Class<? extends Entity> entityclass, String name, int egg1, int egg2) {
-		EntityRegistry.registerModEntity(entityclass, name, c1++, COLMod.ID, 120, 1, true, egg1, egg2);
+		EntityRegistry.registerModEntity(entityclass, name, c1++, COLMod.MODID, 120, 1, true, egg1, egg2);
 	}
 	
 	public static void registerRenderer(Class<? extends Entity> entityclass, IRenderFactory rf) {

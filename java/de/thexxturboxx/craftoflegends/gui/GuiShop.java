@@ -49,7 +49,7 @@ public class GuiShop extends GuiScreen {
 		int guiY = ((height - realGuiHeight) / 2 / scaleFactor);
 		GL11.glColor4f(1, 1, 1, 1);
 		drawDefaultBackground();
-		mc.renderEngine.bindTexture(new ResourceLocation(COLMod.ID, "textures/gui/datageneral.png"));
+		mc.renderEngine.bindTexture(new ResourceLocation(COLMod.MODID, "textures/gui/datageneral.png"));
 		GL11.glScaled(scaleFactor, scaleFactor, scaleFactor);
 		drawTexturedModalRect(guiX, guiY, 0, 0, guiWidth, guiHeight);
 		String s = Integer.toString(DataManager.getProperty(mc.thePlayer.getUniqueID().toString(), PLAYER_PROPERTY.GOLD));
@@ -61,7 +61,7 @@ public class GuiShop extends GuiScreen {
 		for(InvItem is : COLRegistry.itemList) {
 			InvItem i = COLRegistry.itemList.get(scroll * itemsPerLine + c);
 			if(c < itemsPerLine * 10) {
-				ResourceLocation r = new ResourceLocation(COLMod.ID, "textures/items/" + i.getName() + ".png");
+				ResourceLocation r = new ResourceLocation(COLMod.MODID, "textures/items/" + i.getName() + ".png");
 				drawNextItem(i, r, c++, itemsPerLine);				
 			}
 		}
@@ -77,15 +77,15 @@ public class GuiShop extends GuiScreen {
 				int ix = Mouse.getEventX() * width / mc.displayWidth;
 		        int iy = height - Mouse.getEventY() * height / mc.displayHeight - 4;
 				if(ix >= itemX && iy >= itemY && ix <= itemX + 16 && iy <= itemY + 16) {
-					r = new ResourceLocation(COLMod.ID, "textures/items/" + is.getName() + ".png");
+					r = new ResourceLocation(COLMod.MODID, "textures/items/" + is.getName() + ".png");
 					itemcurr = is;
 				}
 				c++;
 			}
 		}
 		if(r != null) {
-			currentX = (int) (width * 2 + width / 2);
-			currentY = (int) (height + height / 32);
+			currentX = width * 2 + width / 2;
+			currentY = height + height / 32;
 			drawItem(r, currentX, currentY, 0.25);
 			fontRendererObj.drawString(Helpers.translate("item." + itemcurr.getName() + ".name"), width / 2 + width / 64, height / 2 - height / 16, 0xffffff, false);
 			fontRendererObj.drawString(itemcurr.getCost() + "", width / 2 + width / 64, height / 2 - height / 16 + 10, 0xffffff, false);

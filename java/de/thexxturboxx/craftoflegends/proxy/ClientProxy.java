@@ -28,7 +28,9 @@ public class ClientProxy extends CommonProxy {
 		//Keybinding for opening the general GUI, id: 0
 		new KeyBinding("key.guigeneral.desc", Keyboard.KEY_C, categoryKeys),
 		//Keybinding for opening the shop GUI, id: 1
-		new KeyBinding("key.guishop.desc", Keyboard.KEY_P, categoryKeys)
+		new KeyBinding("key.guishop.desc", Keyboard.KEY_P, categoryKeys),
+		//Keybinding for opening the inv GUI, id: 2
+		new KeyBinding("key.guiitems.desc", Keyboard.KEY_L, categoryKeys)
 		};
 		
 		for(int i = 0; i < keyBindings.length; ++i) {

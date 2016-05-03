@@ -1,5 +1,8 @@
 package de.thexxturboxx.craftoflegends;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import de.thexxturboxx.craftoflegends.api.COLItems;
 import de.thexxturboxx.craftoflegends.proxy.CommonProxy;
 import net.minecraft.creativetab.CreativeTabs;
@@ -12,23 +15,25 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
-@Mod(modid = COLMod.ID, version = COLMod.VERSION, name = COLMod.NAME, updateJSON = "https://raw.githubusercontent.com/ThexXTURBOXx/Craft-of-Legends/master/version.json")
+@Mod(modid = COLMod.MODID, version = COLMod.VERSION, name = COLMod.NAME, updateJSON = "https://raw.githubusercontent.com/ThexXTURBOXx/Craft-of-Legends/master/version.json")
 public class COLMod {
 	public static final String NAME = "Craft of Legends";
-    public static final String ID = "craftoflegends";
+    public static final String MODID = "craftoflegends";
     public static final String VERSION = "0.0.1";
     
-    public static final CreativeTabs tabCOL = new CreativeTabs(ID) {
+    public static final Logger log = LogManager.getLogger(NAME);
+    
+    public static final CreativeTabs tabCOL = new CreativeTabs(MODID) {
 		@Override
 		public Item getTabIconItem() {
 			return COLItems.abyssal_scepter;
 		}
 	};
     
-    @Instance(ID)
+    @Instance(MODID)
     public static COLMod instance;
     
-    @SidedProxy(modId = ID,
+    @SidedProxy(modId = MODID,
     		clientSide = "de.thexxturboxx.craftoflegends.proxy.ClientProxy",
     		serverSide = "de.thexxturboxx.craftoflegends.proxy.CommonProxy")
     public static CommonProxy proxy;
