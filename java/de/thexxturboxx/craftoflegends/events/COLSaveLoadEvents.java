@@ -29,7 +29,7 @@ import net.minecraftforge.fml.common.gameevent.InputEvent.KeyInputEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class COLEvents {
+public class COLSaveLoadEvents {
 	
 	@SubscribeEvent
 	public void onWorldLoad(PlayerEvent.LoadFromFile e) {

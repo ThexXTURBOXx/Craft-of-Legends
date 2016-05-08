@@ -4,7 +4,7 @@ import java.util.HashMap;
 
 public class ItemProperties {
 	
-	private HashMap<PROPERTY, Integer> props = new HashMap<>();
+	private HashMap<PROPERTY, Integer> props = new HashMap<PROPERTY, Integer>();
 	
 	public ItemProperties setProperty(PROPERTY prop, int value) {
 		props.put(prop, value);
