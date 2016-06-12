@@ -95,7 +95,7 @@ public class InventoryInv implements IInventory {
 	
 	@Override
 	public boolean isUseableByPlayer(EntityPlayer player) {
-		return this.player.isDead ? false : player.getDistanceSqToEntity(this.player) <= 64.0D;
+		return player.isDead ? false : player.getDistanceSqToEntity(this.player) <= 64.0D;
 	}
 	
 	@Override
