@@ -3,6 +3,8 @@ package de.thexxturboxx.craftoflegends.proxy;
 import org.lwjgl.input.Keyboard;
 
 import de.thexxturboxx.craftoflegends.gui.GuiDataGeneral;
+import de.thexxturboxx.craftoflegends.gui.GuiInvShop;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.settings.KeyBinding;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
@@ -41,6 +43,7 @@ public class ClientProxy extends CommonProxy {
 	@Override
 	public void postInit(FMLPostInitializationEvent e) {
 		super.postInit(e);
+		MinecraftForge.EVENT_BUS.register(new GuiInvShop(Minecraft.getMinecraft()));
 	}
 	
 }

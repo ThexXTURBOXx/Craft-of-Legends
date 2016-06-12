@@ -15,7 +15,6 @@ import de.thexxturboxx.craftoflegends.COLMod;
 import de.thexxturboxx.craftoflegends.api.DataManager;
 import de.thexxturboxx.craftoflegends.api.PLAYER_PROPERTY;
 import de.thexxturboxx.craftoflegends.gui.GuiDataGeneral;
-import de.thexxturboxx.craftoflegends.gui.GuiInv;
 import de.thexxturboxx.craftoflegends.gui.GuiShop;
 import de.thexxturboxx.craftoflegends.items.InvItem;
 import de.thexxturboxx.craftoflegends.proxy.ClientProxy;
@@ -253,9 +252,6 @@ public class COLSaveLoadEvents {
 		}
 		if(keyBindings[1].isPressed()) {
 			Minecraft.getMinecraft().displayGuiScreen(new GuiShop());			
-		}
-		if(keyBindings[2].isPressed()) {
-			Minecraft.getMinecraft().displayGuiScreen(new GuiInv());			
 		}
 	}
 }
