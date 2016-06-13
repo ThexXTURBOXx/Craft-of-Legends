@@ -38,17 +38,24 @@ public class GuiInvShop extends Gui {
 		 mc.renderEngine.bindTexture(new ResourceLocation(COLMod.MODID, "textures/gui/shopinv.png"));
 		 drawTexturedModalRect(xPos, yPos, 2, 2, widthi, heighti);
 		 
+		 GL11.glScaled(0.0625, 0.0625, 0.0625);
+		 int c = 0;
 		 for(InvItem i : DataManager.getItems(mc.thePlayer.getUniqueID().toString())) {
-			 int c = 0;
 			 if(i != null) {
-				 ResourceLocation r = new ResourceLocation(COLMod.MODID, "textures/items/" + i.getName() + ".png");			
+				 int z = 0, j = c;
+				 if(c > 2) {
+					 z = 1;
+					 j = c - 3;
+				 }
+				 ResourceLocation r = new ResourceLocation(COLMod.MODID, "textures/items/" + i.getName() + ".png");
 				 mc.renderEngine.bindTexture(r);
-				 drawTexturedModalRect(xPos + 2 + (c * 18), yPos + 2 + (c * 18), 2, 2, 16, 16);
+				 drawTexturedModalRect((xPos + 2 + (j * 18)) * 16, (yPos + 2 + (z * 18)) * 16, 0, 0, 256, 256);
 			 }
 			 c++;
 		 }
+		 GL11.glScaled(16, 16, 16);
 		 
-		 String gold;
-		 mc.fontRendererObj.drawString(gold = Integer.toString(DataManager.getProperty(mc.thePlayer.getUniqueID().toString(), PLAYER_PROPERTY.GOLD)), xPos + 2 + widthi / 2 - (mc.fontRendererObj.getStringWidth(gold) / 2 + 2), height - 11, 0x557661, false);
+		 String gold = Integer.toString(DataManager.getProperty(mc.thePlayer.getUniqueID().toString(), PLAYER_PROPERTY.GOLD));
+		 mc.fontRendererObj.drawString(gold, xPos + 2 + widthi / 2 - (mc.fontRendererObj.getStringWidth(gold) / 2 + 2), height - 11, 0x557661, false);
 	 }
 }
