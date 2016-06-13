@@ -52,12 +52,12 @@ public class DataManager {
 	
 	public static List<InvItem> getItems(String uuid) {
 		List<InvItem> l = new ArrayList();
-		l.add(1, getItem(uuid, PLAYER_PROPERTY.ITEM1));
-		l.add(2, getItem(uuid, PLAYER_PROPERTY.ITEM2));
-		l.add(3, getItem(uuid, PLAYER_PROPERTY.ITEM3));
-		l.add(4, getItem(uuid, PLAYER_PROPERTY.ITEM4));
-		l.add(5, getItem(uuid, PLAYER_PROPERTY.ITEM5));
-		l.add(6, getItem(uuid, PLAYER_PROPERTY.ITEM6));
+		l.add(getItem(uuid, PLAYER_PROPERTY.ITEM1));
+		l.add(getItem(uuid, PLAYER_PROPERTY.ITEM2));
+		l.add(getItem(uuid, PLAYER_PROPERTY.ITEM3));
+		l.add(getItem(uuid, PLAYER_PROPERTY.ITEM4));
+		l.add(getItem(uuid, PLAYER_PROPERTY.ITEM5));
+		l.add(getItem(uuid, PLAYER_PROPERTY.ITEM6));
 		return l;
 	}
 	

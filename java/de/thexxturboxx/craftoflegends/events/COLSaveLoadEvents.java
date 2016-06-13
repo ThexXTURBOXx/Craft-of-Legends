@@ -37,39 +37,29 @@ public class COLSaveLoadEvents {
 			HashMap<PLAYER_PROPERTY, Integer> hmp = new HashMap();
 			HashMap<PLAYER_PROPERTY, InvItem> hmi = new HashMap();
 			int gold = 0;
-			InvItem item1 = null;
-			InvItem item2 = null;
-			InvItem item3 = null;
-			InvItem item4 = null;
-			InvItem item5 = null;
-			InvItem item6 = null;
+			InvItem item1 = null, item2 = null, item3 = null,
+					item4 = null, item5 = null, item6 = null;
 			InputStream i = new FileInputStream(f);
 			for(String s : IOUtils.readLines(i)) {
 				if(s.contains("gold: ")) {
 					gold = Integer.parseInt(s.replace("gold: ", ""));
 				}
 				if(s.contains("item1: ")) {
-					if(s.replace("item1: ", "").equals("null")) {item1 = null; break;}
 					item1 = (InvItem) Item.REGISTRY.getObject(new ResourceLocation(COLMod.MODID.toLowerCase(), s.replace("item1: ", "")));
 				}
 				if(s.contains("item2: ")) {
-					if(s.replace("item2: ", "").equals("null")) {item2 = null; break;}
 					item2 = (InvItem) Item.REGISTRY.getObject(new ResourceLocation(COLMod.MODID.toLowerCase(), s.replace("item2: ", "")));
 				}
 				if(s.contains("item3: ")) {
-					if(s.replace("item3: ", "").equals("null")) {item3 = null; break;}
 					item3 = (InvItem) Item.REGISTRY.getObject(new ResourceLocation(COLMod.MODID.toLowerCase(), s.replace("item3: ", "")));
 				}
 				if(s.contains("item4: ")) {
-					if(s.replace("item4: ", "").equals("null")) {item4 = null; break;}
 					item4 = (InvItem) Item.REGISTRY.getObject(new ResourceLocation(COLMod.MODID.toLowerCase(), s.replace("item4: ", "")));
 				}
 				if(s.contains("item5: ")) {
-					if(s.replace("item5: ", "").equals("null")) {item5 = null; break;}
 					item5 = (InvItem) Item.REGISTRY.getObject(new ResourceLocation(COLMod.MODID.toLowerCase(), s.replace("item5: ", "")));
 				}
 				if(s.contains("item6: ")) {
-					if(s.replace("item6: ", "").equals("null")) {item6 = null; break;}
 					item6 = (InvItem) Item.REGISTRY.getObject(new ResourceLocation(COLMod.MODID.toLowerCase(), s.replace("item6: ", "")));
 				}
 			}
@@ -142,21 +132,14 @@ public class COLSaveLoadEvents {
 			
 			InputStream i = new FileInputStream(f);
 			
-			boolean goldFound = false;
-			boolean item1Found = false;
-			boolean item2Found = false;
-			boolean item3Found = false;
-			boolean item4Found = false;
-			boolean item5Found = false;
-			boolean item6Found = false;
+			boolean goldFound = false,
+					item1Found = false, item2Found = false, item3Found = false,
+					item4Found = false, item5Found = false, item6Found = false;
 			
 			int gold = 0;
-			String item1 = null;
-			String item2 = null;
-			String item3 = null;
-			String item4 = null;
-			String item5 = null;
-			String item6 = null;
+			
+			String item1 = null, item2 = null, item3 = null,
+				   item4 = null, item5 = null, item6 = null;
 			
 			for(String s : IOUtils.readLines(i)) {
 				if(s.contains("gold: ")) {
