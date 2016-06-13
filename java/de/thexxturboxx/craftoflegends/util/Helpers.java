@@ -6,12 +6,12 @@ import java.io.InputStream;
 import org.apache.commons.io.IOUtils;
 
 import de.thexxturboxx.craftoflegends.COLMod;
-import net.minecraft.util.text.translation.I18n;
+import net.minecraft.client.resources.I18n;
 
 public class Helpers {
 	
 	public static String translate(String toTranslate) {
-		String s = I18n.translateToLocal(toTranslate);
+		String s = I18n.format(toTranslate);
 		if(s.contains(toTranslate)) {
 			s = getNewTranslation(toTranslate, "en_GB");
 		}

@@ -21,27 +21,20 @@ import scala.actors.threadpool.Arrays;
 
 public class GuiShop extends GuiScreen {
 	
-	int guiWidth = 256;
-	int guiHeight = 137;
+	int guiWidth = 256, guiHeight = 137;
 	
-	int realGuiWidth = 512;
-	int realGuiHeight = 274;
+	int realGuiWidth = 512, realGuiHeight = 274;
 	
-	int goldWidth = 32;
-	int goldHeight = 16;
+	int goldWidth = 31, goldHeight = 16;
 	
 	int scaleFactor = 2;
 	
-	int scroll = 0;
-	int itemsPerLine = 7;
-	int linesPerGui = 7;
+	int scroll = 0, itemsPerLine = 7, linesPerGui = 7;
 	
-	int currentX = 0;
-	int currentY = 0;
+	int currentX = 0, currentY = 0;
+	
 	ResourceLocation r = null;
 	InvItem itemcurr = null;
-	
-	//GuiButton button;
 	
 	@Override
 	public void drawScreen(int x, int y, float ticks) {
@@ -84,11 +77,14 @@ public class GuiShop extends GuiScreen {
 			}
 		}
 		if(r != null) {
-			currentX = width * 2 + width / 2;
-			currentY = height + height / 32;
-			drawItem(r, currentX, currentY, 0.25);
-			fontRendererObj.drawString(Helpers.translate("item." + itemcurr.getName() + ".name"), width / 2 + width / 64, height / 2 - height / 16, 0xffffff, false);
-			fontRendererObj.drawString(itemcurr.getCost() + "", width / 2 + width / 64, height / 2 - height / 16 + 10, 0xffffff, false);
+			currentX = guiX1;
+			currentY = guiY1;
+			drawItem(r, currentX * 4 + realGuiWidth * 3 - 128, currentY * 4 + 200, 0.25);
+			mc.renderEngine.bindTexture(new ResourceLocation(COLMod.MODID, "textures/gui/datageneral.png"));
+			drawTexturedModalRect(currentX + realGuiWidth * 3 / 4 - 25, currentY + 128 + 16, 31, 137, 49, 16);
+			fontRendererObj.drawString(Helpers.translate("item." + itemcurr.getName() + ".name"), currentX + realGuiWidth * 3 / 4 - 75, currentY + 128, 0xffffff, false);
+			fontRendererObj.drawString(Helpers.translate("gui.shop.buy"), currentX + realGuiWidth * 3 / 4 - mc.fontRendererObj.getStringWidth(Helpers.translate("gui.shop.buy")) / 2, currentY + 128 + 20, 0x557661, false);
+			fontRendererObj.drawString(itemcurr.getCost() + "", currentX + realGuiWidth * 3 / 4 - 75, currentY + 128 + 10, 0xffffff, false);
 		}
 		c = 0;
 		for(InvItem is : COLRegistry.itemList) {

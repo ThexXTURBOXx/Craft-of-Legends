@@ -27,6 +27,8 @@ gui.general.stats=Stats
 gui.general.user=Summoner
 gui.general.gold=Gold
 
+gui.shop.buy=Buy
+
 item.abyssal_scepter.name=Abyssal Scepter
 item.aegis_legion.name=Aegis of the Legion
 item.aether_wisp.name=Aether Wisp

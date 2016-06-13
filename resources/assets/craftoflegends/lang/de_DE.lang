@@ -27,4 +27,6 @@ gui.general.stats=Statistiken
 gui.general.user=Beschwörer
 gui.general.gold=Gold
 
+gui.shop.buy=Kaufen
+
 item.abyssal_scepter.name=Höllenzepter
