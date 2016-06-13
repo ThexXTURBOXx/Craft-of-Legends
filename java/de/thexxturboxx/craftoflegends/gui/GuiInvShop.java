@@ -26,9 +26,12 @@ public class GuiInvShop extends Gui {
 	 
 	 @SubscribeEvent
 	 public void onRenderExperienceBar(RenderGameOverlayEvent event) {
+		 //To prevent double rendering
 		 if(event.isCancelable() || event.getType() != ElementType.EXPERIENCE) {      
 			 return;
 		 }
+		 
+		 //Normal Rendering here
 		 width = event.getResolution().getScaledWidth();
 		 height = event.getResolution().getScaledHeight();
 		 int xPos = 2;
@@ -39,6 +42,7 @@ public class GuiInvShop extends Gui {
 		 drawTexturedModalRect(xPos, yPos, 2, 2, widthi, heighti);
 		 
 		 GL11.glScaled(0.0625, 0.0625, 0.0625);
+		 //Item Rendering here (Scale Factor is right here)
 		 int c = 0;
 		 for(InvItem i : DataManager.getItems(mc.thePlayer.getUniqueID().toString())) {
 			 if(i != null) {
@@ -55,6 +59,7 @@ public class GuiInvShop extends Gui {
 		 }
 		 GL11.glScaled(16, 16, 16);
 		 
+		 //Text Rendering here (Else everything is broken again -.-)
 		 String gold = Integer.toString(DataManager.getProperty(mc.thePlayer.getUniqueID().toString(), PLAYER_PROPERTY.GOLD));
 		 mc.fontRendererObj.drawString(gold, xPos + 2 + widthi / 2 - (mc.fontRendererObj.getStringWidth(gold) / 2 + 2), height - 11, 0x557661, false);
 	 }
