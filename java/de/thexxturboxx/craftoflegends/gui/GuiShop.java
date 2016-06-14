@@ -62,18 +62,23 @@ public class GuiShop extends GuiScreen {
 		int guiY1 = guiY * 2;
 		if(Mouse.isCreated() && Mouse.isButtonDown(0)) {
 			c = 0;
+			int ix = Mouse.getEventX() * width / mc.displayWidth;
+	        int iy = height - Mouse.getEventY() * height / mc.displayHeight - 4;
 			for(InvItem is : COLRegistry.itemList) {
 				int lineX = (c % itemsPerLine) + 1;
 				int lineY = (c - lineX + 1) / itemsPerLine;
 				int itemX = guiX1 + ((lineX - 1) * 32) + 8;
 				int itemY = guiY1 + (lineY * 32) + 31;
-				int ix = Mouse.getEventX() * width / mc.displayWidth;
-		        int iy = height - Mouse.getEventY() * height / mc.displayHeight - 4;
 				if(ix >= itemX && iy >= itemY && ix <= itemX + 16 && iy <= itemY + 16) {
 					r = new ResourceLocation(COLMod.MODID, "textures/items/" + is.getName() + ".png");
 					itemcurr = is;
 				}
 				c++;
+			}
+			int lineX = currentX + realGuiWidth * 3 / 4 - 25;
+			int lineY = currentY + 128 + 16;
+			if(ix >= lineX && iy >= lineY && ix <= lineX + 49 && iy <= lineY + 16 && r != null) {
+				System.out.println("buy it");
 			}
 		}
 		if(r != null) {
