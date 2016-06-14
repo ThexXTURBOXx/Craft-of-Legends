@@ -33,6 +33,8 @@ public class GuiShop extends GuiScreen {
 	
 	int currentX = 0, currentY = 0;
 	
+	boolean buttondown;
+	
 	ResourceLocation r = null;
 	InvItem itemcurr = null;
 	
@@ -75,12 +77,14 @@ public class GuiShop extends GuiScreen {
 				}
 				c++;
 			}
-			int lineX = currentX + realGuiWidth * 3 / 4 - 25;
-			int lineY = currentY + 128 + 16;
-			if(ix >= lineX && iy >= lineY && ix <= lineX + 49 && iy <= lineY + 16 && r != null) {
+			int buttonX = currentX + realGuiWidth * 3 / 4 - 25;
+			int buttonY = currentY + 128 + 13;
+			if(ix >= buttonX && iy >= buttonY && ix <= buttonX + 48 && iy <= buttonY + 15 && r != null && !buttondown) {
 				System.out.println("buy it");
 			}
+			buttondown = true;
 		}
+		if(Mouse.isCreated() && !Mouse.isButtonDown(0)) buttondown = false;
 		if(r != null) {
 			currentX = guiX1;
 			currentY = guiY1;
