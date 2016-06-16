@@ -40,6 +40,8 @@ public class GuiShop extends GuiScreen {
 	
 	ResourceLocation r = null;
 	InvItem itemcurr = null;
+	PLAYER_PROPERTY gold = PLAYER_PROPERTY.GOLD;
+	String uuid;
 	
 	@Override
 	public void drawScreen(int x, int y, float ticks) {
@@ -50,7 +52,7 @@ public class GuiShop extends GuiScreen {
 		mc.renderEngine.bindTexture(new ResourceLocation(COLMod.MODID, "textures/gui/datageneral.png"));
 		GL11.glScaled(scaleFactor, scaleFactor, scaleFactor);
 		drawTexturedModalRect(guiX, guiY, 0, 0, guiWidth, guiHeight);
-		String s = Integer.toString(DataManager.getProperty(mc.thePlayer.getUniqueID().toString(), PLAYER_PROPERTY.GOLD));
+		String s = Integer.toString(DataManager.getProperty(uuid, gold));
 		int xx = (16 + fontRendererObj.getStringWidth(s)) / 2;
 		drawTexturedModalRect(guiX + (guiWidth / 2) - xx, guiY + 2, 0, guiHeight, goldWidth, goldHeight);
 		fontRendererObj.drawString(s, guiX + (guiWidth / 2) + xx, guiY + 4, 0xffffff, false);
@@ -83,7 +85,18 @@ public class GuiShop extends GuiScreen {
 			int buttonX = currentX + realGuiWidth * 3 / 4 - 25;
 			int buttonY = currentY + 128 + 13;
 			if(ix >= buttonX && iy >= buttonY && ix <= buttonX + 48 && iy <= buttonY + 15 && r != null && !buttondown) {
-				System.out.println("buy it");
+				int i1 = 1;
+				for(InvItem i : DataManager.getItems(uuid)) {
+					if(i != null) {
+						i1++;
+					} else {
+						break;
+					}
+				}
+				if(i1 != 7 && itemcurr != null && DataManager.getProperty(uuid, gold) >= itemcurr.getCost()) {
+					DataManager.setItem(uuid, i1, itemcurr);
+					DataManager.setGold(uuid, DataManager.getProperty(uuid, gold) - itemcurr.getCost());
+				}
 			}
 			buttondown = true;
 		}
@@ -164,5 +177,11 @@ public class GuiShop extends GuiScreen {
 		drawTexturedModalRect(x, y, 0, 0, 256, 256);
 		GL11.glScaled(1 / scale, 1 / scale, 1 / scale);
 		GL11.glColor4d(0.5, 0.5, 0.5, 1);
+	}
+	
+	@Override
+	public void initGui() {
+		uuid = mc.thePlayer.getUniqueID().toString();
+		super.initGui();
 	}
 }
