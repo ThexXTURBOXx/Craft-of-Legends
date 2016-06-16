@@ -40,7 +40,7 @@ public class COLSaveLoadEvents {
 			InvItem item1 = null, item2 = null, item3 = null,
 					item4 = null, item5 = null, item6 = null;
 			InputStream i = new FileInputStream(f);
-			for(String s : IOUtils.readLines(i)) {
+			for(String s : IOUtils.readLines(i, "UTF-8")) {
 				if(s.contains("gold: ")) {
 					gold = Integer.parseInt(s.replace("gold: ", ""));
 				}
@@ -141,7 +141,7 @@ public class COLSaveLoadEvents {
 			String item1 = null, item2 = null, item3 = null,
 				   item4 = null, item5 = null, item6 = null;
 			
-			for(String s : IOUtils.readLines(i)) {
+			for(String s : IOUtils.readLines(i, "UTF-8")) {
 				if(s.contains("gold: ")) {
 					goldFound = true;
 					gold = Integer.parseInt(s.replace("gold: ", ""));
@@ -178,7 +178,7 @@ public class COLSaveLoadEvents {
 			if(!goldFound) {
 				p.println("gold: 0");
 			} else {
-				p.println(gold);
+				p.println("gold: " + gold);
 			}
 			
 			if(!item1Found) {
