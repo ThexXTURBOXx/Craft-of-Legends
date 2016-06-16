@@ -106,9 +106,22 @@ public class GuiShop extends GuiScreen {
 			currentY = guiY1;
 			drawItem(r, currentX * 4 + realGuiWidth * 3 - 128, currentY * 4 + 200, 0.25);
 			mc.renderEngine.bindTexture(new ResourceLocation(COLMod.MODID, "textures/gui/datageneral.png"));
-			drawTexturedModalRect(currentX + realGuiWidth * 3 / 4 - 25, currentY + 128 + 16, 31, 137, 49, 16);
+			int i1 = 1;
+			for(InvItem i : DataManager.getItems(uuid)) {
+				if(i != null) {
+					i1++;
+				} else {
+					break;
+				}
+			}
+			if(DataManager.getProperty(uuid, gold) >= itemcurr.getCost() && i1 != 7) {
+				drawTexturedModalRect(currentX + realGuiWidth * 3 / 4 - 25, currentY + 128 + 16, 31, 137, 49, 16);
+				fontRendererObj.drawString(Helpers.translate("gui.shop.buy"), currentX + realGuiWidth * 3 / 4 - mc.fontRendererObj.getStringWidth(Helpers.translate("gui.shop.buy")) / 2, currentY + 128 + 20, 0x557661, false);
+			} else {
+				drawTexturedModalRect(currentX + realGuiWidth * 3 / 4 - 25, currentY + 128 + 16, 80, 137, 49, 16);
+				fontRendererObj.drawString(Helpers.translate("gui.shop.buy"), currentX + realGuiWidth * 3 / 4 - mc.fontRendererObj.getStringWidth(Helpers.translate("gui.shop.buy")) / 2, currentY + 128 + 20, 0x354641, false);
+			}
 			fontRendererObj.drawString(Helpers.translate("item." + itemcurr.getName() + ".name"), currentX + realGuiWidth * 3 / 4 - 75, currentY + 128, 0xffffff, false);
-			fontRendererObj.drawString(Helpers.translate("gui.shop.buy"), currentX + realGuiWidth * 3 / 4 - mc.fontRendererObj.getStringWidth(Helpers.translate("gui.shop.buy")) / 2, currentY + 128 + 20, 0x557661, false);
 			fontRendererObj.drawString(itemcurr.getCost() + "", currentX + realGuiWidth * 3 / 4 - 75, currentY + 128 + 10, 0xffffff, false);
 		}
 		c = 0;
