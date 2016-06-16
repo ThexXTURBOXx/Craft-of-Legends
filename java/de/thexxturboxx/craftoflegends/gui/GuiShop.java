@@ -17,8 +17,11 @@ import de.thexxturboxx.craftoflegends.items.InvItem;
 import de.thexxturboxx.craftoflegends.util.Helpers;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 import scala.actors.threadpool.Arrays;
 
+@SideOnly(Side.CLIENT)
 public class GuiShop extends GuiScreen {
 	
 	int guiWidth = 256, guiHeight = 137;

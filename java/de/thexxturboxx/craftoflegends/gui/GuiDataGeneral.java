@@ -11,7 +11,10 @@ import de.thexxturboxx.craftoflegends.util.Helpers;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
+@SideOnly(Side.CLIENT)
 public class GuiDataGeneral extends GuiScreen {
 	
 	int guiWidth = 256;
