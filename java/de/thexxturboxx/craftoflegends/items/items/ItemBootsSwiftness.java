@@ -27,8 +27,6 @@ public class ItemBootsSwiftness extends InvItem {
 	@Override
 	public List<Item> buildsFrom() {
 		List<Item> bF = new ArrayList<Item>();
-		//bF.add(Blasting Wand);
-		//bF.add(Negatron Cloak);
 		return bF;
 	}
 	
