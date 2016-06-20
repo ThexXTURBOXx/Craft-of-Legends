@@ -40,6 +40,7 @@ import de.thexxturboxx.craftoflegends.items.items.ItemDagger;
 import de.thexxturboxx.craftoflegends.items.items.ItemDeadMansPlate;
 import de.thexxturboxx.craftoflegends.items.items.ItemDeathsDance;
 import de.thexxturboxx.craftoflegends.items.items.ItemDervishBlade;
+import de.thexxturboxx.craftoflegends.items.items.ItemDoransBlade;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.item.Item;
@@ -87,6 +88,7 @@ public class COLRegistry {
 		COLItems.dead_mans_plate = registerItem(new ItemDeadMansPlate());
 		COLItems.deaths_dance = registerItem(new ItemDeathsDance());
 		COLItems.dervish_blade = registerItem(new ItemDervishBlade());
+		COLItems.dorans_blade = registerItem(new ItemDoransBlade());
 	}
 	
 	public static Item registerItem(ItemBase item) {
