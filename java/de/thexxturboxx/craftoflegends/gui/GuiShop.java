@@ -52,10 +52,8 @@ public class GuiShop extends GuiScreen {
 		mc.renderEngine.bindTexture(new ResourceLocation(COLMod.MODID, "textures/gui/datageneral.png"));
 		GL11.glScaled(scaleFactor, scaleFactor, scaleFactor);
 		drawTexturedModalRect(guiX, guiY, 0, 0, guiWidth, guiHeight);
-		String s = Integer.toString(DataManager.getProperty(uuid, gold));
-		int xx = (16 + fontRendererObj.getStringWidth(s)) / 2;
-		drawTexturedModalRect(guiX + (guiWidth / 2) - xx, guiY + 2, 0, guiHeight, goldWidth, goldHeight);
-		fontRendererObj.drawString(s, guiX + (guiWidth / 2) + xx, guiY + 4, 0xffffff, false);
+		drawTexturedModalRect(guiX + (guiWidth / 2) - 32, guiY + 2, 0, guiHeight, goldWidth, goldHeight);
+		fontRendererObj.drawString(Integer.toString(DataManager.getProperty(uuid, gold)), guiX + (guiWidth / 2), guiY + 4, 0xffffff, false);
 		GL11.glScaled((1 / (double) scaleFactor), (1 / (double) scaleFactor), (1 / (double) scaleFactor));
 		int c = 0;
 		for(InvItem is : COLRegistry.itemList) {
